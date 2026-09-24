@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+import LanguagesInterests from "../components/LanguagesInterests.astro";
+import Contact from "../components/Contact.astro";
+import { fetchResume } from "../lib/resume";
+
+const resume = await fetchResume();
+---
+
+<Base
+  title={`${resume.basics.name} — ${resume.basics.label}`}
+  description={resume.basics.summary}
+>
+  <Nav />
+  <main id="about">
+    <Hero basics={resume.basics} />
+    <Skills skills={resume.skills} />
+    <Experience work={resume.work} />
+    <Education education={resume.education} />
+    <LanguagesInterests
+      languages={resume.languages}
+      interests={resume.interests}
+    />
+    <Contact basics={resume.basics} />
+  </main>
+  <footer
+    class="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400"
+  >
+    &copy; {new Date().getFullYear()} {resume.basics.name}
+  </footer>
+</Base>
