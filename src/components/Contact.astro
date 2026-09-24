@@ -1,6 +1,6 @@
 ---
 import type { ResumeBasics } from "../lib/resume";
-import { TOPTAL_REFERRAL_URL } from "../lib/links";
+import { TOPTAL_REFERRAL_URL, CONTACT_EMAIL } from "../lib/links";
 
 interface Props {
   basics: ResumeBasics;
@@ -23,21 +23,11 @@ const networkIcon: Record<string, string> = {
   </p>
   <div class="mt-8 flex flex-wrap gap-3">
     <a
-      href={`mailto:${basics.email}`}
+      href={`mailto:${CONTACT_EMAIL}`}
       class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
     >
-      {basics.email}
+      {CONTACT_EMAIL}
     </a>
-    {
-      basics.phone && (
-        <a
-          href={`tel:${basics.phone}`}
-          class="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
-        >
-          {basics.phone}
-        </a>
-      )
-    }
     {
       basics.profiles.map((profile) => (
         <a

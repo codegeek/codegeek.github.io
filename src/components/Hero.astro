@@ -1,6 +1,7 @@
 ---
 import type { ResumeBasics } from "../lib/resume";
 import ToptalBadge from "./ToptalBadge.astro";
+import { CONTACT_EMAIL } from "../lib/links";
 
 interface Props {
   basics: ResumeBasics;
@@ -26,7 +27,7 @@ const { basics } = Astro.props;
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a
-          href={`mailto:${basics.email}`}
+          href={`mailto:${CONTACT_EMAIL}`}
           class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
         >
           Contact me
