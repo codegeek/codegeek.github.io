@@ -63,8 +63,8 @@ export interface Resume {
   work: ResumeWork[];
   education: ResumeEducation[];
   skills: ResumeSkill[];
-  languages: ResumeLanguage[];
-  interests: ResumeInterest[];
+  languages?: ResumeLanguage[];
+  interests?: ResumeInterest[];
 }
 
 const REQUIRED_KEYS: (keyof Resume)[] = [
@@ -72,8 +72,6 @@ const REQUIRED_KEYS: (keyof Resume)[] = [
   "work",
   "education",
   "skills",
-  "languages",
-  "interests",
 ];
 
 function assertIsResume(data: unknown): asserts data is Resume {
